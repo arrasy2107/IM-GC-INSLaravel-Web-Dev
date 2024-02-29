@@ -1,1 +1,5 @@
-abcdefghij
+Data Peserta GC-INS Bootcamp Laravel Web Dev
+1. Nama : Arrasy Rizqi Taher
+2. Email : arrasyrtaher21@gmail.com
+3. Akun Github : https://github.com/arrasy2107
+4. Akun Telegram : -
