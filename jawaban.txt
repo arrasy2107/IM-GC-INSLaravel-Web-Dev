@@ -1,0 +1,72 @@
+Soal 1
+Buatlah database dengan nama “myshop”
+	CREATE DATABASE myshop;
+----------------------------------------------------------------------------------------------------
+Soal 2
+Buat table di dalam database
+Table users
+	CREATE TABLE users (
+		id INT AUTO_INCREMENT PRIMARY KEY,
+		name VARCHAR(255),
+		email VARCHAR(255),
+		password VARCHAR(255)
+	);
+Table categories
+	CREATE TABLE categories (
+		id INT AUTO_INCREMENT PRIMARY KEY,
+		name VARCHAR(255)
+	);
+Table items
+	CREATE TABLE items (
+		id INT AUTO_INCREMENT PRIMARY KEY,
+		name VARCHAR(255),
+		description VARCHAR(255),
+		price INT,
+		stock INT,
+		category_id INT
+	);
+Menjadikan category_id sebagai FK dari table categories
+	ALTER TABLE items
+	ADD CONSTRAINT fk_category_id
+	FOREIGN KEY (category_id)
+	REFERENCES categories(id);
+----------------------------------------------------------------------------------------------------
+Soal 3
+Input Data ke Table
+Table users
+	INSERT INTO users (name, email) VALUES
+		('John Doe', 'john@doe.com'),
+		('John Doe', 'john@doe.com');
+Table categories
+	INSERT INTO categories (name) VALUES
+		('Gadget'),
+		('Cloth'),
+		('Gadget'),
+		('Men'),
+		('Women'),
+		('Branded')
+	;
+Table items
+	INSERT INTO items (name, description, price, stock, category_id) VALUES
+	('Sumsang b50', 'hape keren dari merek sumsang', 1850000, 20, 1),
+	('Uniklooh', 'baju keren dari brand ternama', 950000, 25, 2),
+	('IMHO Watch', 'jam tangan anak yang jujur banget', 1500000, 10, 3);
+----------------------------------------------------------------------------------------------------
+Soal 4
+Mengambil Data dari Database
+a. Data Users
+	SELECT name, email FROM users;
+b. Data categories
+	SELECT * FROM items WHERE price > 1000000;
+Mengambil data items yang memiliki name serupa atau mirip dengan kata kunci
+	SELECT * FROM items WHERE name LIKE '%uniklo%' OR name LIKE '%watch%' OR name LIKE '%sang%'
+c. Data items JOIN categories
+	SELECT items.name, items.description, categories.name AS category
+	FROM items
+	JOIN categories ON items.category_id = categories.id;
+----------------------------------------------------------------------------------------------------
+Soal 5
+Mengambil data dari database
+	UPDATE items SET price = 2750000 WHERE name = 'Sumsang b50';
+
+
